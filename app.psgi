@@ -124,7 +124,7 @@ __DATA__
             for ( var i = 0, len = codes.length; i < len; i++) {
               codes[i] = convertCodeToDecimal( codes[i] );
             }
-            destCode = codes.join("-");
+            destCode = codes[0] + codes[1] + " - " + codes[2] + codes[3];
             $("#destCode").val(destCode);
 
             $("#srcCode").select().focus();
