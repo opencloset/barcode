@@ -1,0 +1,21 @@
+#!/usr/bin/env perl
+
+use utf8;
+use strict;
+use warnings;
+
+my $PORT = 8006;
+
+{
+    #
+    # for Mojolicious hypnotoad server
+    #
+    hypnotoad => {
+        listen   => ["http://*:$PORT"],
+        workers  => 2,
+        pid_file => 'hypnotoad.pid',
+    },
+
+    project_name => 'Barcode for OpenCloset',
+    copyright    => '2015 OpenCloset',
+};
