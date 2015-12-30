@@ -47,7 +47,13 @@ __DATA__
 
             <div class="form-group">
               <label class="control-label" for="destCode">변환된 십진 코드</label>
-              <input class="form-control" id="destCode" type="text" disabled="" name="destCode" id="destCode">
+              <div class="input-group">
+                <input type="text" class="form-control" readonly="" name="destCode" id="destCode">
+                <span class="input-group-btn">
+                  <button class="btn btn-default btn-lg" type="button" id="btnCopyToClipboard">복사</button>
+                </span>
+              </div>
+              <div id="destCodeCopyResult"></div>
             </div>
 
           </form>
@@ -126,6 +132,34 @@ __DATA__
             }
             destCode = codes[0] + codes[1] + " - " + codes[2] + codes[3];
             $("#destCode").val(destCode);
+
+            $("#srcCode").select().focus();
+          });
+
+          $("#btnCopyToClipboard").click(function(e) {
+            e.preventDefault();
+
+            $("#destCode").select().focus();
+
+            var msg;
+            var msg_class;
+            try {
+              if ( document.execCommand("copy") ) {
+                msg = "십진 코드를 클립보드에 복사했습니다.";
+                msg_class = "text-success";
+              }
+              else {
+                msg = "십진 코드를 복사하는데 실패했습니다.";
+                msg_class = "text-warning";
+              }
+
+            } catch (err) {
+              msg = "클립보드에 복사할 수 없습니다.";
+              msg_class = "text-danger";
+            }
+
+            $("#destCodeCopyResult").append( $("<span class=\"\">" + msg + "</span>") );
+            $("#destCodeCopyResult span").addClass(msg_class).delay(2000).fadeOut(100, function() { $(this).remove(); });
 
             $("#srcCode").select().focus();
           });
