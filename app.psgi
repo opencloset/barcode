@@ -177,13 +177,13 @@ __DATA__
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
- 
+
     <!-- Bootstrap + Bootswatch -->
     %= asset "paper.css"
     %= asset "bootstrap.js"
- 
+
     <title><%= title %> - <%= $project_name %></title>
- 
+
     <style>
       /* Move down content because we have a fixed navbar that is 50px tall */
       body {
@@ -193,10 +193,10 @@ __DATA__
 
       /* spacer */
       .space-20 {
-          margin: 20px 0 19px;
-          max-height: 1px;
-          min-height: 1px;
-          overflow: hidden;
+        margin: 20px 0 19px;
+        max-height: 1px;
+        min-height: 1px;
+        overflow: hidden;
       }
 
       /* home */
@@ -208,17 +208,17 @@ __DATA__
         height: 90px;
       }
       #home .btn-lg, #home .btn-group-lg > .btn {
-          font-size: 48px;
-          padding: 10px 40px;
+        font-size: 48px;
+        padding: 10px 40px;
       }
       #home input#srcCode {
-          ime-mode:disabled;
+        ime-mode:disabled;
       }
     </style>
   </head>
- 
+
   <body>
- 
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -232,18 +232,18 @@ __DATA__
         </div>
       </div>
     </nav>
- 
+
     <div <%== $page_id ? qq{id="$page_id"} : q{} %> class="container">
       <!-- PAGE CONTENT BEGINS -->
       <%= content %>
       <!-- PAGE CONTENT ENDS -->
- 
+
       <hr>
- 
+
       <footer>
         <p>&copy; <%= $copyright %></p>
       </footer>
     </div> <!-- /container -->
- 
+
   </body>
 </html>
